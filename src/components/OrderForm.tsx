@@ -1,6 +1,7 @@
 import { useId } from "react";
 
-import { Formik, Form, Field} from "formik";
+import { Formik, Form, Field } from "formik";
+import type { FormikHelpers } from "formik"
 
 import css from "./OrderForm.module.css";
 
@@ -26,9 +27,9 @@ const INITIAL_VALUES: OrderFormValues = {
 export default function OrderForm() {
     const fieldId = useId();
 
-    const handleSubmit = (values: OrderFormValues) => {
+    const handleSubmit = (values: OrderFormValues, formikHelpers: FormikHelpers<OrderFormValues>) => {
         console.log(values);
-        
+        formikHelpers.resetForm();
     }
 
     return (
